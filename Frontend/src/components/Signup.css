@@ -1,0 +1,194 @@
+.SIGNUP {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.SIGNUP .div-2 {
+  background-color: #ffffff;
+  height: 918px;
+  position: relative;
+  width: 1440px;
+}
+
+.SIGNUP .text-wrapper {
+  color: #0061e5;
+  direction: rtl;
+  font-family: "Assistant", Helvetica;
+  font-size: 40px;
+  font-weight: 700;
+  height: 57px;
+  left: 821px;
+  letter-spacing: 0;
+  line-height: 57px;
+  position: absolute;
+  top: 139px;
+  white-space: nowrap;
+  width: 529px;
+}
+
+.SIGNUP .qtax {
+  color: #000000;
+  direction: rtl;
+  font-family: "Assistant", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  height: 57px;
+  left: 514px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 196px;
+  width: 836px;
+}
+
+.SIGNUP .overlap-2,
+.SIGNUP .overlap-3,
+.SIGNUP .overlap-4,
+.SIGNUP .overlap-5 {
+  background-color: #ffffff;
+  border: 1px solid #637082;
+  border-radius: 5px;
+  height: 46px;
+  left: 1031px;
+  position: absolute;
+  width: 319px;
+}
+
+.SIGNUP .overlap-2 {
+  top: 301px;
+}
+.SIGNUP .overlap-3 {
+  top: 390px;
+}
+.SIGNUP .overlap-4 {
+  top: 479px;
+}
+.SIGNUP .overlap-5 {
+  top: 568px;
+}
+
+.SIGNUP .input-field {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 0 10px;
+  direction: rtl;
+  font-size: 20px;
+}
+
+.SIGNUP .overlap-2 label,
+.SIGNUP .overlap-3 label,
+.SIGNUP .overlap-4 label,
+.SIGNUP .overlap-5 label {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+  color: #242424;
+  font-family: "Assistant", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.SIGNUP .overlap-2.focused label,
+.SIGNUP .overlap-3.focused label,
+.SIGNUP .overlap-4.focused label,
+.SIGNUP .overlap-5.focused label,
+.SIGNUP .overlap-2 input:not(:placeholder-shown) + label,
+.SIGNUP .overlap-3 input:not(:placeholder-shown) + label,
+.SIGNUP .overlap-4 input:not(:placeholder-shown) + label,
+.SIGNUP .overlap-5 input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 14px;
+  background-color: white;
+  padding: 0 5px;
+}
+
+.SIGNUP .checkbox-container {
+  position: absolute;
+  left: 1031px;
+  width: 319px;
+  direction: rtl;
+  font-family: "Assistant", Helvetica;
+  font-size: 18px;
+}
+
+.SIGNUP .terms-checkbox {
+  top: 630px;
+}
+
+.SIGNUP .privacy-checkbox {
+  top: 670px;
+}
+
+.SIGNUP .signup-button {
+  background-color: #0061e5;
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: "Assistant", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  height: 46px;
+  left: 1031px;
+  position: absolute;
+  top: 720px;
+  width: 319px;
+  border: none;
+  cursor: pointer;
+}
+
+.SIGNUP .signup-button.blue-ellipse {
+  background-color: #0061e5;
+  box-shadow: 0 0 10px rgba(0, 97, 229, 0.5);
+}
+
+.SIGNUP .signup-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.SIGNUP .overlap-group-2 {
+  height: 102px;
+  left: 1061px;
+  position: absolute;
+  top: 780px;
+  width: 268px;
+}
+
+.SIGNUP .p {
+  color: #000000;
+  direction: rtl;
+  font-family: "Assistant", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  height: 57px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 45px;
+  width: 265px;
+}
+
+.SIGNUP .span {
+  color: #000000;
+}
+
+.SIGNUP .text-wrapper-2 {
+  color: #0061e5;
+  text-decoration: underline;
+}
+
+.SIGNUP .error-message {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
