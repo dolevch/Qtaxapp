@@ -3,8 +3,6 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
 
-const REDIRECT_URL = "/welcome"; // Update this with the correct route when determined
-
 const Signup = () => {
   const navigate = useNavigate();
   const {
@@ -24,22 +22,33 @@ const Signup = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverError, setServerError] = useState("");
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
+    setServerError("");
+
     try {
-      console.log("Sending signup request:", data);
+      console.log("Sending signup request:", {
+        email: data.email,
+        id: data.id,
+        password: "******",
+      });
+
+      const body = JSON.stringify({
+        email: data.email,
+        id: data.id,
+        password: data.password,
+      });
+
       const response = await fetch("/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email: data.email,
-          id: data.id,
-          password: data.password,
-        }),
+        body,
       });
+
       console.log("Response status:", response.status);
       console.log("Response headers:", Object.fromEntries(response.headers));
 
@@ -51,22 +60,23 @@ const Signup = () => {
         responseData = responseText ? JSON.parse(responseText) : {};
       } catch (parseError) {
         console.error("Error parsing JSON:", parseError);
-        throw new Error("Invalid response format");
+        throw new Error("Invalid response format from server");
       }
 
       console.log("Parsed response data:", responseData);
 
-      if (response.ok) {
-        alert("Registration successful!");
-        navigate(REDIRECT_URL);
-      } else {
-        alert(
-          `Registration failed: ${responseData.message || "Unknown error"}`
+      if (!response.ok) {
+        throw new Error(
+          responseData.message || `HTTP error! status: ${response.status}`
         );
       }
+
+      console.log("Registration successful!");
+      // Pass the ID to Page1 component
+      navigate(`/page1/${data.id}`, { state: { userId: data.id } });
     } catch (error) {
       console.error("Error during signup:", error);
-      alert(`An error occurred: ${error.message}. Please try again later.`);
+      setServerError(`Server error: ${error.message}. Please try again later.`);
     } finally {
       setIsSubmitting(false);
     }
@@ -80,6 +90,9 @@ const Signup = () => {
           נמצאתם מתאים לQtax. <br />
           הכניסו מייל וסיסמא ובואו נתחיל!
         </p>
+        {serverError && (
+          <div className="error-message server-error">{serverError}</div>
+        )}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div
             className={`overlap-2 ${
@@ -216,7 +229,7 @@ const Signup = () => {
             className="signup-button blue-ellipse"
             disabled={!isValid || isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "הרשמה"}
+            {isSubmitting ? "מתבצעת הרשמה..." : "הרשמה"}
           </button>
         </form>
         <div className="overlap-group-2">

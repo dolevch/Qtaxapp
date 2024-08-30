@@ -33,6 +33,9 @@ const AdminPortal = () => {
           <tr>
             <th>Email</th>
             <th>ID</th>
+            <th>Full Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +43,9 @@ const AdminPortal = () => {
             <tr key={user.user_id}>
               <td>{user.email}</td>
               <td>{user.user_id}</td>
+              <td>{user.full_name || "N/A"}</td>
+              <td>{user.phone_number || "N/A"}</td>
+              <td>{user.address || "N/A"}</td>
             </tr>
           ))}
         </tbody>

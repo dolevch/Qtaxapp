@@ -8,10 +8,10 @@ const APITestComponent = () => {
     fetch("/api/test")
       .then((response) => {
         console.log("Response status:", response.status);
-        return response.text(); // Change this line
+        return response.text();
       })
       .then((text) => {
-        console.log("Raw response:", text); // Add this line
+        console.log("Raw response:", text);
         try {
           const data = JSON.parse(text);
           console.log("Parsed data:", data);
