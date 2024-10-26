@@ -1,9 +1,24 @@
 .welcome-page {
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
   width: 100%;
+}
+
+.welcome-page .GreyBox {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background-color: #f0f0f0;
+  z-index: 0;
+}
+
+.welcome-page .logo {
+  position: absolute;
+  margin-top: -75px;
+  margin-left: 1900px;
+  z-index: 10;
 }
 
 .welcome-page .div-6 {
@@ -26,11 +41,11 @@
 .welcome-page .text-wrapper-36 {
   color: #0061e5;
   direction: rtl;
-  font-family: "Assistant", Helvetica;
+  font-family: "Times New Roman", Times, serif;
   font-size: 40px;
   font-weight: 700;
-  height: 57px;
-  right: 0;
+  margin-bottom: 75px;
+  right: -450px;
   letter-spacing: 0;
   line-height: 57px;
   position: absolute;
@@ -43,11 +58,11 @@
 .welcome-page .text-wrapper-37 {
   color: #000000;
   direction: rtl;
-  font-family: "Assistant", Helvetica;
+  font-family: "Times New Roman", Times, serif;
   font-size: 28px;
   font-weight: 400;
   height: 57px;
-  right: 0;
+  right: -450px;
   letter-spacing: 0;
   line-height: 30px;
   position: absolute;
@@ -67,11 +82,11 @@
 .welcome-page .text-wrapper-38 {
   color: #000000;
   direction: rtl;
-  font-family: "Assistant", Helvetica;
+  font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-weight: 400;
   height: 57px;
-  right: 0;
+  right: -450px;
   letter-spacing: 0;
   line-height: 30px;
   position: absolute;
@@ -83,11 +98,11 @@
 .welcome-page .text-wrapper-39 {
   color: #000000;
   direction: rtl;
-  font-family: "Assistant", Helvetica;
+  font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-weight: 700;
-  height: 57px;
-  right: 0;
+  margin-top: 5px;
+  right: -450px;
   letter-spacing: 0;
   line-height: 30px;
   position: absolute;
@@ -101,7 +116,7 @@
   justify-content: flex-end;
   position: absolute;
   top: 90px;
-  right: 0;
+  right: -450px;
   width: 200px;
 }
 
@@ -116,15 +131,16 @@
 .welcome-page .option-text {
   color: #000000;
   direction: rtl;
-  font-family: "Assistant", Helvetica;
+  font-family: "Times New Roman", Times, serif;
   font-size: 18px;
+
   font-weight: 400;
   margin-bottom: 5px;
 }
 
 .welcome-page .ellipse {
   border: 1px solid #000000;
-  border-radius: 10px;
+  border-radius: 15px;
   height: 20px;
   width: 20px;
 }
@@ -140,14 +156,14 @@
 .welcome-page .div-7 {
   color: #000000;
   direction: rtl;
-  font-family: "Assistant", Helvetica;
+  font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-weight: 400;
   height: 57px;
-  right: 0;
+  right: -500px;
   letter-spacing: 0;
   line-height: 30px;
-  position: absolute;
+  position: relative;
   top: 45px;
   width: 265px;
   text-align: right;
@@ -155,23 +171,26 @@
 
 .welcome-page .text-wrapper-45 {
   color: #000000;
-  font-family: "Assistant", Helvetica;
+  font-family: "Times New Roman", Times, serif;
   font-size: 20px;
-  font-weight: 400;
   letter-spacing: 0;
   line-height: 30px;
+  display: inline-block;
+  margin-right: 20px; /* Adjust this value to move it more or less to the right */
 }
 
 .welcome-page .text-wrapper-46 {
   text-decoration: underline;
   cursor: pointer;
+  display: inline-block;
+  margin-right: 10px; /* Adjust this value as needed */
 }
 
 .welcome-page .rectangle-10 {
   background-color: #0061e5;
   border-radius: 50px;
   height: 46px;
-  right: 30px;
+  right: -485px;
   position: absolute;
   top: 0;
   width: 253px;
@@ -179,42 +198,45 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: opacity 1s;
 }
 
-.welcome-page .group-wrapper {
-  background-color: #f6f7f7;
-  height: 92px;
-  right: 0;
-  position: absolute;
-  top: 1px;
-  width: 1440px;
-}
-
-.welcome-page .group-3 {
-  height: 50px;
-  right: 74px;
-  position: absolute;
-  top: 21px;
-  width: 116px;
+.welcome-page .rectangle-10:hover {
+  opacity: 0.8;
 }
 
 .welcome-page .popup {
   position: fixed;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  background-color: white;
+  transform: translate(250%, 700%);
+  color: white;
+  background-color: rgb(84, 87, 162);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(96, 103, 243, 0.5);
+  border: 2px solid #240707;
   z-index: 1000;
   text-align: right;
   max-width: 80%;
+}
+
+.popup::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 120%;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgb(84, 87, 162);
+  bottom: -20px;
+  right: -30px;
+  transform: rotate(250deg);
+  transform-origin: center top;
 }
 
 .welcome-page .registration-text {
   color: white;
   font-size: 24px;
   font-weight: bold;
+
   text-align: center;
 }

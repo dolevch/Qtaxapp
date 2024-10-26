@@ -1,68 +1,65 @@
 .page1 {
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  width: 100%;
   position: relative;
-  right: 0px;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.page1 .GreyBox {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 40%;
+  height: 100%;
+  background-color: #f0f0f0;
+  z-index: 1;
+  border: 5px solid red; /* Add a visible border */
 }
 
 .page1 .div {
-  background-color: #ffffff;
-  height: 1074px;
-  overflow: hidden;
   position: relative;
-  width: 1440px;
-}
-
-.page1 .rectangle {
-  background-color: #f6f7f7;
-  height: 92px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 1440px;
+  z-index: 1;
 }
 
 .page1 .text-wrapper {
   color: #0061e5;
   direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 40px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 50px;
   font-weight: 700;
   height: 42px;
-  left: 350px;
+  left: 750px;
   letter-spacing: 0;
   line-height: 1px;
   position: absolute;
   text-align: center;
-  top: 1px;
+  top: -50px;
   white-space: nowrap;
   width: 634px;
 }
 
 .page1 .logo {
   height: 50px;
-  right: 23px;
+  left: 1850px;
   position: absolute;
-  top: 21px;
+  top: 25px;
   width: 116px;
 }
 
 .page1 .user-alt-light-screen {
-  height: 39px;
   display: flex;
+  font-size: 25px;
   align-items: center;
   position: absolute;
-  left: 53px;
-  top: 26px;
-  z-index: 1000;
+  left: -100px;
+  top: -50px;
+  z-index: 2;
 }
 
 .page1 .user-name {
   margin-right: 10px;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 16px;
   color: #242424;
   text-align: right;
@@ -78,90 +75,105 @@
   display: inline-block;
 }
 
+.page1 .user-icon-container {
+  position: absolute;
+  top: 20px;
+  right: 1780px;
+  z-index: 9999;
+}
 .page1 .user-icon {
-  height: 39px;
-  width: 39px;
-  position: relative;
-  cursor: pointer;
-}
-
-.page1 .user-circle {
-  border: 1px solid #232323;
-  border-radius: 50%;
-  height: 13px;
-  width: 13px;
-  position: absolute;
-  left: 200%;
-  top: 6px;
-  transform: translateX(-50%);
-}
-
-.page1 .user-body {
-  background-color: #232323;
-  border-radius: 12px 12px 0 0;
-  height: 11px;
-  width: 25px;
-  position: absolute;
-  left: 200%;
-  bottom: 0;
-  transform: translateX(-50%);
-}
-
-.page1 .user-dropdown {
-  position: absolute;
-  top: 120%;
-  left: 0;
-  background-color: #ffffff;
-  border: 1px solid #637082;
-  border-radius: 5px;
-  width: 120px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.page1 .dropdown-option {
-  padding: 10px;
+  font-size: 45px;
   color: #242424;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 16px;
-  text-align: right;
   cursor: pointer;
 }
 
-.page1 .dropdown-option:hover {
-  background-color: #f6f7f7;
+.DropDown {
+  position: absolute;
+  direction: rtl;
+  top: 175%;
+  right: 0; /* Align it with the right side of the icon container */
+  width: 125px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid grey;
+  z-index: 10000; /* Ensure it's above other elements */
+}
+.DropDown::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  right: 1.1rem;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-left: 1px solid grey;
+  border-top: 1px solid grey;
 }
 
-.page1 .steps-container {
+.DropDown li {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.3s;
+}
+
+.DropDown li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Main container styles */
+.page1 .page1-steps.StepsContainer {
   display: flex;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   position: absolute;
   top: 114px;
-  left: 725px;
-  transform: translateX(-50%);
-  width: 100%;
+  right: 200px;
+  width: calc(100% - 120px);
   direction: rtl;
   background-color: #ffffff;
   z-index: 999;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
-.page1 .step {
+/* Main container styles */
+.page1 .steps-container.page1-steps {
+  display: flex;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  top: 114px;
+  right: 200px;
+  width: calc(100% - 120px);
+  direction: rtl;
+  background-color: #ffffff;
+  z-index: 999;
+  padding: 20px 0;
+}
+
+/* Individual step styles */
+.page1 .steps-container.page1-steps .step {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 40px;
   position: relative;
 }
 
-.page1 .box {
+/* Box styles (container for ellipse) */
+.page1 .steps-container.page1-steps .step .box {
   height: 56px;
   width: 56px;
   position: relative;
   margin-bottom: 10px;
 }
 
-.page1 .ellipse {
+.page1 .steps-container.page1-steps .step .box .ellipse {
   height: 56px;
   width: 56px;
   border-radius: 50%;
@@ -169,76 +181,65 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Assistant-Bold", Helvetica;
+  font-family: "Times New Roman", Helvetica;
   font-size: 28px;
   color: #272727;
   background-color: #ffffff;
 }
 
-.page1 .ellipse.active {
+.page1 .steps-container.page1-steps .step.active .box .ellipse {
   background-color: #0061e5;
+  color: white;
   border-color: #0061e5;
-  color: #ffffff;
+  font-weight: bold;
 }
 
-.page1 .step-text {
+.page1 .steps-container.page1-steps .step-text {
   color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "Times New Roman", Helvetica;
   font-size: 16px;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
 }
 
-.page1 .dashed-line {
+.page1 .steps-container.page1-steps .step.active .step-text {
+  font-weight: bold;
+}
+
+.page1 .steps-container.page1-steps .dashed-line {
   flex-grow: 1;
   height: 1px;
-  border-top: 2px dashed #637082;
+  background: repeating-linear-gradient(
+    to right,
+    #000000,
+    #000000 5px,
+    transparent 5px,
+    transparent 10px
+  );
   margin: 0 10px;
   align-self: center;
+  width: 50px;
 }
 
-.page1 .content-wrapper {
-  position: relative;
-  width: calc(100% - 50px);
-  padding-right: 500px;
-  box-sizing: border-box;
+@media (max-width: 1440px) {
+  .page1 .steps-container.page1-steps {
+    right: 220px;
+    width: calc(100% - 240px);
+  }
 }
-
-.page1 .text-wrapper-12 {
-  position: absolute !important;
-  right: 20px !important;
-  top: 300px !important;
-  margin-left: auto !important;
-  margin-right: 0 !important;
-  text-align: right !important;
-  z-index: 9999 !important;
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 22px;
-  font-weight: 700;
-  height: 42px;
-  letter-spacing: 0;
-  line-height: 57px;
-  white-space: nowrap;
-  width: 182px;
-}
-
 .page1 .text-wrapper-13 {
   color: #000000;
   direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 22px;
   font-weight: 700;
-  height: 46px;
   letter-spacing: 0;
   line-height: 30px;
   position: absolute;
   width: 323px;
-  right: 0px;
-  top: 227px;
+  right: 36px;
+  top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -281,7 +282,8 @@
 .page1 .year-option {
   padding: 10px;
   color: #242424;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "times new roman", Times, serif;
+
   font-size: 16px;
   text-align: center;
   cursor: pointer;
@@ -294,16 +296,17 @@
 .page1 .service-cost-text {
   color: #242424;
   direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 16px;
+  font-family: "times new roman", Times, serif;
+  font-size: 25px;
   font-weight: 400;
   position: absolute;
-  right: 0px;
-  top: 283px;
+  right: 25px;
+  top: 150px;
   width: 323px;
   text-align: right;
   line-height: 1.2;
   white-space: nowrap;
+  margin-top: 8px;
 }
 
 .page1 .div-wrapper,
@@ -317,19 +320,29 @@
   height: 46px;
   position: absolute;
   width: 323px;
-  right: 20px;
+  right: 40px;
 }
 
 .page1 .div-wrapper {
-  top: 392px;
+  position: absolute;
+  margin-top: 350px;
+  width: 323px;
+
+  right: 38px;
 }
 
 .page1 .overlap-6 {
   top: 480px;
+  margin-top: 0px;
+  right: 40px;
 }
 
 .page1 .overlap-8 {
-  top: 600px;
+  position: absolute;
+  margin-top: 650px;
+  width: 323px;
+  height: 46px;
+  right: 40px;
 }
 
 .page1 .overlap-10 {
@@ -351,35 +364,73 @@
 }
 
 .page1 .overlap-12 {
-  top: 392px;
+  position: absolute;
+  margin-top: 350px;
+  left: 1000px;
+  width: 323px;
+  height: 46px;
+  background-color: #ffffff;
+  border: 1px solid #637082;
+  border-radius: 5px;
+  z-index: 10; /* Add this line to ensure it's above other elements */
+}
+
+.page1 .overlap-12 input {
+  width: 94%;
+  height: 100%;
+  direction: rtl;
+  border: none;
+  background: transparent;
+  font-family: "times new roman", Times, serif;
+  font-size: 20px;
+  color: #242424;
+  text-align: right;
+  padding: 0 10px;
+  position: relative; /* Add this line */
+  z-index: 11; /* Add this line to ensure the input is above its container */
 }
 
 .page1 .overlap-13 {
   top: 480px;
+  left: 1000px;
 }
 
 .page1 .overlap-14 {
-  top: 568px;
+  top: 600px;
+  left: 1000px;
 }
 
 .page1 .overlap-15 {
   top: 755px;
 }
 
-.page1 .text-wrapper-id,
-.page1 .text-wrapper-full-name,
-.page1 .text-wrapper-phone,
-.page1 .text-wrapper-father-name,
+.page1 .text-wrapper-id {
+  width: 94%;
+  margin-top: 50;
+}
+
+.page1 .text-wrapper-full-name {
+  width: 94%;
+}
+.page1 .text-wrapper-phone {
+  width: 93%;
+}
+
 .page1 .text-wrapper-birth-date,
-.page1 .text-wrapper-city,
-.page1 .text-wrapper-street,
-.page1 .text-wrapper-house-number,
-.page1 .text-wrapper-bank-name,
-.page1 .text-wrapper-branch-number,
+.page1 .text-wrapper-city {
+  width: 94%;
+}
+.page1 .text-wrapper-street {
+  width: 94%;
+}
+.page1 .text-wrapper-house-number {
+  width: 94%;
+}
+
 .page1 .text-wrapper-account-number {
   color: #242424;
   direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 20px;
   font-weight: 400;
   height: 35px;
@@ -394,7 +445,7 @@
 .page1 .p {
   color: #242424;
   direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 18px;
   font-weight: 400;
   height: 35px;
@@ -409,11 +460,11 @@
 .page1 .text-wrapper-18 {
   color: #242424;
   direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 18px;
   font-weight: 400;
-  height: 35px;
-  right: 20px;
+  margin-top: 70px;
+  right: 40px;
   letter-spacing: 0;
   line-height: 35px;
   position: absolute;
@@ -424,15 +475,14 @@
 .page1 .text-wrapper-20 {
   color: #000000;
   direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 22px;
   font-weight: 700;
-  height: 42px;
-  left: 700px;
+  left: 1220px;
   letter-spacing: 0;
   line-height: 57px;
   position: absolute;
-  top: 338px;
+  top: 270px;
   white-space: nowrap;
   width: 182px;
   text-align: left;
@@ -444,26 +494,10 @@
   left: -515px; /* Moves it to the left */
 }
 
-.page1 .text-wrapper-21 {
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 22px;
-  font-weight: 700;
-  height: 42px;
-  right: -450px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  top: 0;
-  white-space: nowrap;
-  width: auto;
-}
-
 .page1 .text-wrapper-22 {
   color: #242424;
   direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 18px;
   font-weight: 400;
   height: 35px;
@@ -471,13 +505,14 @@
   line-height: 35px;
   width: 100%;
   position: absolute;
-  top: 850px; /* Adjust this value to move it up or down */
-  right: 50px; /* Adjust this value to move it left or right */
+  top: 175px; /* Adjust this value to move it up or down */
+  right: 180px; /* Adjust this value to move it left or right */
   width: 100%;
 }
 
 .page1 .rectangle-2 {
   background-color: #ffffff;
+  direction: rtl;
   border: 1px solid;
   border-color: #637082;
   border-radius: 5px;
@@ -485,14 +520,14 @@
   left: -1px;
   position: absolute;
   top: -1px;
-  width: 319px;
+  width: 322px;
 }
 
 .page1 .overlap-18 {
   background-color: #0061e5;
   border-radius: 50px;
   height: 46px;
-  right: 323px;
+  right: 280px;
   position: absolute;
   top: 993px;
   width: 152px;
@@ -501,7 +536,7 @@
 .page1 .text-wrapper-26 {
   color: #ffffff;
   direction: rtl;
-  font-family: "Assistant-SemiBold", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 24px;
   font-weight: 600;
   height: 35px;
@@ -519,7 +554,7 @@
   border-color: #0061e5;
   border-radius: 50px;
   height: 46px;
-  right: 153px;
+  right: 60px;
   position: absolute;
   top: 993px;
   width: 152px;
@@ -528,7 +563,7 @@
 .page1 .text-wrapper-27 {
   color: #0061e5;
   direction: rtl;
-  font-family: "Assistant-SemiBold", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 24px;
   font-weight: 600;
   height: 35px;
@@ -543,23 +578,30 @@
 
 /* File upload styles */
 .page1 .file-upload-container {
-  position: relative;
-  bottom: -550px;
-  right: -520px;
-  left: auto;
-  margin: 20px 0;
+  position: absolute;
+  top: 530px; /* Increased from previous value to move it down */
+  right: 40px; /* Align with other form elements */
+  width: 320px;
   text-align: right;
-  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent; /* Keep background transparent */
+  z-index: 100; /* Ensure it's above other elements */
 }
 
 .page1 .file-upload-label {
-  display: inline-block;
+  display: block;
   cursor: pointer;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "times new roman", Times, serif;
   direction: rtl;
+  margin-bottom: 10px;
 }
 
 .page1 .upload-text {
+  font-family: "Times New Roman", Times, serif;
   color: #0061e5;
   font-size: 18px;
   text-decoration: underline;
@@ -567,38 +609,62 @@
 }
 
 .page1 .upload-subtext {
+  font-family: "Times New Roman", Times, serif;
   color: #242424;
   font-size: 18px;
+  display: block;
 }
 
+/* Styles for when a file is uploaded */
 .page1 .uploaded-file-icon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  margin-right: 10px;
-  background-color: #f0f0f0;
-  padding: 5px 10px;
+  background-color: none;
+  padding: -10px 20px;
   border-radius: 5px;
+  margin-top: 0px;
+  width: 55%;
 }
 
 .page1 .file-icon {
-  font-size: 24px;
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+.page1 .file-name {
+  margin: 0 10px;
+  font-family: "times new roman", Times, serif;
+  font-size: 14px;
+  flex-grow: 1;
+  color: #242424;
 }
 
 .page1 .file-delete {
   cursor: pointer;
   color: #ff0000;
   font-size: 14px;
-  margin-left: 5px;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
+.new-upload-container {
+  position: absolute;
+  margin-top: 700px;
+  right: 750px;
+  text-align: center;
+}
+
+.new-upload-container h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
 /* Additional styles for form elements */
 .page1 input {
   width: 100%;
   height: 100%;
   border: none;
   background: transparent;
-  font-family: "Assistant-Regular", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 20px;
   color: #242424;
   text-align: right;
@@ -642,15 +708,14 @@
   right: 0;
   color: #000000;
   direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
+  font-family: "times new roman", Times, serif;
   font-size: 18px;
   font-weight: 700;
+  padding-right: 0px;
 }
 
 /* Specific label content for each input */
-.page1 .div-wrapper::before {
-  content: "ת.ז.";
-}
+
 .page1 .overlap-6::before {
   content: "שם מלא";
 }

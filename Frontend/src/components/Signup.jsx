@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
+import GreyBox from "./GreyBox";
+import Logo from "./Logo";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -84,6 +86,8 @@ const Signup = () => {
 
   return (
     <div className="SIGNUP">
+      <GreyBox />
+      <Logo />
       <div className="div-2">
         <div className="text-wrapper">ברוכים הבאים לQtax</div>
         <p className="qtax">
@@ -110,6 +114,7 @@ const Signup = () => {
               onFocus={() => setInputFocus({ ...inputFocus, email: true })}
               onBlur={() => setInputFocus({ ...inputFocus, email: false })}
               className="input-field"
+              placeholder=" "
             />
             <label>מייל</label>
             {errors.email && (
@@ -132,7 +137,9 @@ const Signup = () => {
               onFocus={() => setInputFocus({ ...inputFocus, id: true })}
               onBlur={() => setInputFocus({ ...inputFocus, id: false })}
               className="input-field"
+              placeholder=" "
             />
+
             <label>מספר זהות</label>
             {errors.id && (
               <span className="error-message">{errors.id.message}</span>
@@ -155,6 +162,7 @@ const Signup = () => {
               onFocus={() => setInputFocus({ ...inputFocus, password: true })}
               onBlur={() => setInputFocus({ ...inputFocus, password: false })}
               className="input-field"
+              placeholder=" "
             />
             <label>סיסמא</label>
             {errors.password && (
@@ -182,6 +190,7 @@ const Signup = () => {
                 setInputFocus({ ...inputFocus, confirmPassword: false })
               }
               className="input-field"
+              placeholder=" "
             />
             <label>אימות סיסמא</label>
             {errors.confirmPassword && (

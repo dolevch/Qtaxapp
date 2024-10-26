@@ -1,121 +1,180 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import Logo from "./Logo";
+import StepsContainer from "./StepsContainer";
+import GreyBox from "./GreyBox";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import DropDown from "./Dropdown";
 import "./Page2.css";
 
+library.add(faUser);
+
 const Page2 = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const selectedYear = location.state?.selectedYear || new Date().getFullYear();
+  const fullName = location.state?.fullName || "User"; // Default to "User" if no name is provided
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [childrenCount, setChildrenCount] = useState(0);
+  const [maritalStatus, setMaritalStatus] = useState(""); // Moved inside the component
+
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    console.log("Component mounted. Initial marital status:", maritalStatus);
+  }, []);
+
+  useEffect(() => {
+    console.log("Marital status updated:", maritalStatus);
+  }, [maritalStatus]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpenDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const toggleDropdown = (e) => {
+    e.stopPropagation();
+    setOpenDropdown((prev) => !prev);
+  };
+
+  const handleChildrenCountChange = (e) => {
+    setChildrenCount(Number(e.target.value));
+  };
+
+  const handleMaritalStatusChange = (e) => {
+    setMaritalStatus(e.target.value);
+  };
+
+  console.log("Marital Status:", maritalStatus); // Add this line for debugging
+
   return (
     <div className="page2">
-      <div className="div">
-        <img
-          className="logo"
-          alt="Qtax Logo"
-          src="https://cdn.animaapp.com/projects/66af5c89776d5bcf2ecb6e2d/releases/66b3002dda47b5df7d5a9923/img/group-2@2x.png"
+      <div className="page2-header">
+        <GreyBox className="page2-grey-box" />
+        <div className="page2-logo">
+          <Logo />
+        </div>
+        <p className="page2-tax-year">דוח מס לשנת המס {selectedYear}</p>
+      </div>
+      <StepsContainer currentStep={2} className="page2-steps" />
+      <div className="page2-user-icon-container" ref={dropdownRef}>
+        <FontAwesomeIcon
+          icon="fa-solid fa-user"
+          className="page2-user-icon"
+          onClick={toggleDropdown}
         />
-        <div className="element">
-          <div className="div-2">
-            <div className="overlap">
-              <p className="text-wrapper">דוח מס לשנת המס 2021</p>
+        <span className="page2-user-name">{fullName}</span>
+        {openDropdown && <DropDown />}
+      </div>
 
-              <div className="text-wrapper-2">דולב שלביקי</div>
+      <h2 className="page2-section-title">פרטים משפחתיים</h2>
+      <div className="page2-form-container">
+        <h2 className="page2-main-title">מצב משפחתי</h2>
+        <div className="page2-marital-status" data-label="מצב משפחתי">
+          <select
+            className="page2-form-select"
+            onChange={handleMaritalStatusChange}
+            value={maritalStatus}
+          >
+            onChange={handleMaritalStatusChange}
+            value={maritalStatus}
+            <option>בחר מצב משפחתי</option>
+            <option>רווק/ה</option>
+            <option>נשוי/אה</option>
+            <option>גרוש/ה</option>
+            <option>אלמן/ה</option>
+          </select>
+        </div>
+
+        {maritalStatus === "נשוי/אה" && (
+          <div className="page2-spouse-info">
+            <div className="page2-spouse-name" data-label="שם בן/בת הזוג">
+              <input
+                type="text"
+                className="page2-form-input"
+                placeholder="(שם בן/בת הזוג (פרטי+משפחה"
+              />
             </div>
-            <div className="overlap-2">
-              <img className="line-2" alt="Line" src="line-1.svg" />
-              <div className="text-wrapper-3">פרטים אישיים</div>
-              <div className="ellipse" />
+            <div className="page2-spouse-id" data-label="ת.ז של בן/ת הזוג">
+              <input
+                type="number"
+                className="page2-form-input"
+                placeholder="ת.ז של בן/ת הזוג"
+              />
             </div>
-            <div className="overlap-3">
-              <img className="line-3" alt="Line" src="line-2.svg" />
-              <div className="text-wrapper-4">הכנסות</div>
-              <div className="ellipse-2" />
-              <div className="text-wrapper-5">3</div>
-            </div>
-            <img className="line-4" alt="Line" src="line-3.svg" />
-            <img className="line-5" alt="Line" src="line-4.svg" />
-            <div className="overlap-4">
-              <div className="text-wrapper-6">פרטים משפחתיים</div>
-              <div className="ellipse-3" />
-              <div className="text-wrapper-7">2</div>
-            </div>
-            <div className="overlap-5">
-              <div className="text-wrapper-8">בירורים נוספים</div>
-              <div className="ellipse-4" />
-              <div className="text-wrapper-9">4</div>
-            </div>
-            <div className="overlap-6">
-              <div className="text-wrapper-10">קבצים וייפוי כוח</div>
-              <div className="ellipse-5" />
-              <div className="text-wrapper-11">5</div>
-            </div>
-            <div className="text-wrapper-12">פרטים משפחתיים</div>
-            <div className="overlap-7">
-              <div className="expand-down-wrapper"></div>
-              <div className="text-wrapper-13">מצב משפחתי</div>
-            </div>
-            <div className="overlap-8">
-              <div className="text-wrapper-14">מספר ילדים</div>
-            </div>
-            <div className="overlap-9">
-              <div className="overlap-10">
-                <div className="text-wrapper-15">ילד 1</div>
-                <div className="text-wrapper-15">ילד 1</div>
-              </div>
-            </div>
-            <div className="overlap-11">
-              <div className="text-wrapper-16">ילד 1</div>
-            </div>
-            <div className="overlap-12">
-              <div className="overlap-10">
-                <div className="text-wrapper-15">ילד 1</div>
-                <div className="text-wrapper-15">ילד 1</div>
-              </div>
-            </div>
-            <div className="overlap-13">
-              <div className="text-wrapper-16">ילד 1</div>
-            </div>
-            <div className="overlap-14">
-              <div className="overlap-10">
-                <div className="text-wrapper-15">ילד 1</div>
-                <div className="text-wrapper-15">ילד 1</div>
-              </div>
-            </div>
-            <div className="overlap-15">
-              <div className="text-wrapper-16">ילד 1</div>
-            </div>
-            <div className="overlap-16">
-              <div className="overlap-10">
-                <div className="text-wrapper-15">ילד 1</div>
-                <div className="text-wrapper-15">ילד 1</div>
-              </div>
-            </div>
-            <div className="overlap-17">
-              <div className="text-wrapper-16">ילד 1</div>
-            </div>
-            <div className="overlap-18">
-              <div className="overlap-10">
-                <div className="text-wrapper-15">ילד 1</div>
-                <div className="text-wrapper-15">ילד 1</div>
-              </div>
-            </div>
-            <div className="overlap-19">
-              <div className="text-wrapper-16">ילד 1</div>
-            </div>
-            <div className="overlap-20">
-              <div className="overlap-10">
-                <div className="text-wrapper-15">ילד 1</div>
-                <div className="text-wrapper-15">ילד 1</div>
-              </div>
-            </div>
-            <div className="overlap-21">
-              <div className="text-wrapper-16">ילד 1</div>
-            </div>
-            <div className="div-wrapper">
-              <div className="text-wrapper-17">המשך</div>
-            </div>
-            <div className="overlap-22">
-              <div className="text-wrapper-18">חזור</div>
+            <div
+              className="page2-spouse-birthdate"
+              data-label="תאריך לידה של בן/ת הזוג"
+            >
+              <input
+                type="date"
+                className="page2-form-input page2-date-input"
+                placeholder="תאריך לידה של בן/ת הזוג"
+              />
             </div>
           </div>
+        )}
+        <div className="page2-children-container debug-children-select">
+          <h2 className="page2-children-title">מספר ילדים</h2>
+          <div className="page2-children-count">
+            <select
+              className="page2-form-select page2-children-select debug-select"
+              onChange={handleChildrenCountChange}
+              value={childrenCount}
+            >
+              <option value={0}>בחר מספר ילדים</option>
+              {[1, 2, 3, 4, 5, 6].map((num) => (
+                <option key={num} value={num}>
+                  {num}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
+
+        {[...Array(childrenCount)].map((_, index) => (
+          <div
+            key={index}
+            className={`page2-child-${index + 1}`}
+            data-label={`ילד ${index + 1}`}
+          >
+            <input
+              type="date"
+              className="page2-form-input page2-date-input"
+              placeholder={`תאריך לידה של הילד ${index + 1}`}
+            />
+          </div>
+        ))}
       </div>
+
+      <footer className="page2-footer">
+        <button
+          className="page2-button page2-button-secondary"
+          onClick={() => navigate(`/page1/${id}`)}
+        >
+          חזור
+        </button>
+        <button
+          className="page2-button page2-button-primary"
+          onClick={() => {
+            /* Handle next */
+          }}
+        >
+          המשך
+        </button>
+      </footer>
     </div>
   );
 };

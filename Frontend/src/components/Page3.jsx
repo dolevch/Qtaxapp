@@ -1,190 +1,252 @@
-import React from "react";
-import { DoneRoundLight } from "./DoneRoundLight";
-import { ExpandDown } from "./ExpandDown";
-import { FileDockLight } from "./FileDockLight";
-import { FileDockLightWrapper } from "./FileDockLightWrapper";
-import { UserAltLight } from "./UserAltLight";
-import "./style.css";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import "./Page3.css";
 
-export const Element = () => {
+import StepsContainer from "./StepsContainer";
+import Logo from "./Logo";
+
+const Page3 = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const { textWrapperContent, userFullName, selectedYear } =
+    location.state || {};
+
+  const [workIncome, setWorkIncome] = useState("");
+  const [hasInvestmentAccount, setHasInvestmentAccount] = useState(null);
+  const [investmentAccountType, setInvestmentAccountType] = useState("");
+  const [hasRealEstateIncome, setHasRealEstateIncome] = useState(null);
+  const [paysAdvancePayments, setPaysAdvancePayments] = useState(null);
+  const [monthlyRentIncome, setMonthlyRentIncome] = useState({});
+  const [otherIncome, setOtherIncome] = useState("");
+  const [form106File, setForm106File] = useState(null);
+  const [form867File, setForm867File] = useState(null);
+
+  useEffect(() => {
+    console.log("Received state:", location.state);
+  }, [location.state]);
+
+  const handleFileUpload = (e, setFile) => {
+    const file = e.target.files[0];
+    setFile(file);
+  };
+
+  const handleContinue = () => {
+    console.log("Income data:", {
+      workIncome,
+      hasInvestmentAccount,
+      investmentAccountType,
+      hasRealEstateIncome,
+      paysAdvancePayments,
+      monthlyRentIncome,
+      otherIncome,
+      form106File: form106File ? form106File.name : null,
+      form867File: form867File ? form867File.name : null,
+    });
+    navigate("/admin");
+  };
+
+  const handleBack = () => {
+    navigate(`/page2/${id}`, {
+      state: { textWrapperContent, userFullName, selectedYear },
+    });
+  };
+
   return (
-    <div className="element">
-      <div className="div">
-        <div className="overlap">
-          <p className="text-wrapper">דוח מס לשנת המס 2021</p>
-          <UserAltLight className="user-alt-light" />
-          <img className="group" alt="Group" src="group-2.png" />
-          <div className="text-wrapper-2">דולב שלביקי</div>
+    <div className="page3">
+      <div className="content">
+        <div className="header">
+          <Logo />
+          <p className="text-wrapper">
+            {textWrapperContent ||
+              `דוח מס לשנת המס ${selectedYear || new Date().getFullYear()}`}
+          </p>
+          <UserIcon userName={userFullName} />
         </div>
-        <div className="overlap-group">
-          <img className="line" alt="Line" src="line-1.svg" />
-          <div className="text-wrapper-3">פרטים אישיים</div>
-          <div className="ellipse" />
-          <DoneRoundLight className="done-round-light" color="white" />
-        </div>
-        <div className="overlap-2">
-          <img className="img" alt="Line" src="line-2.svg" />
-          <div className="text-wrapper-4">הכנסות</div>
-          <div className="ellipse-2" />
-          <div className="text-wrapper-5">3</div>
-        </div>
-        <img className="line-2" alt="Line" src="line-3.svg" />
-        <img className="line-3" alt="Line" src="line-4.svg" />
-        <div className="overlap-3">
-          <div className="text-wrapper-6">פרטים משפחתיים</div>
-          <div className="ellipse-3" />
-          <DoneRoundLight className="done-round-light-instance" color="white" />
-        </div>
-        <div className="overlap-4">
-          <div className="text-wrapper-7">בירורים נוספים</div>
-          <div className="ellipse-4" />
-          <div className="text-wrapper-8">4</div>
-        </div>
-        <div className="overlap-5">
-          <div className="text-wrapper-9">קבצים וייפוי כוח</div>
-          <div className="ellipse-5" />
-          <div className="text-wrapper-10">5</div>
-        </div>
-        <div className="overlap-6">
-          <div className="text-wrapper-11">הכנסות מעבודה</div>
-          <div className="text-wrapper-11">הכנסות מעבודה</div>
-        </div>
-        <div className="overlap-group-2">
-          <ExpandDown className="expand-down" />
-          <div className="text-wrapper-12">צרפו טופס 106 מהמעסיק</div>
-          <div className="rectangle" />
-          <p className="p">לחצו וצרפו טופס 106 מהמעסיק</p>
-          <FileDockLightWrapper className="file-dock-light" />
-        </div>
-        <div className="overlap-7">
-          <div className="rectangle-2" />
-          <div className="text-wrapper-13">צרפו טופס 106 מהמעסיק</div>
-          <div className="rectangle-3" />
-          <div className="text-wrapper-14">הזן את גובה המקדמה</div>
-        </div>
-        <div className="overlap-8">
-          <div className="rectangle-4" />
-          <div className="text-wrapper-15">ינואר</div>
-        </div>
-        <div className="div-wrapper">
-          <div className="text-wrapper-16">ינואר</div>
-        </div>
-        <div className="overlap-9">
-          <div className="rectangle-4" />
-          <div className="text-wrapper-15">ינואר</div>
-        </div>
-        <div className="overlap-10">
-          <div className="text-wrapper-16">ינואר</div>
-        </div>
-        <div className="overlap-11">
-          <div className="rectangle-4" />
-          <div className="text-wrapper-15">ינואר</div>
-        </div>
-        <div className="overlap-12">
-          <div className="text-wrapper-16">ינואר</div>
-        </div>
-        <div className="overlap-13">
-          <div className="rectangle-4" />
-          <div className="text-wrapper-15">ינואר</div>
-        </div>
-        <div className="overlap-14">
-          <div className="text-wrapper-16">ינואר</div>
-        </div>
-        <div className="overlap-15">
-          <div className="rectangle-4" />
-          <div className="text-wrapper-15">ינואר</div>
-        </div>
-        <div className="overlap-16">
-          <div className="text-wrapper-16">ינואר</div>
-        </div>
-        <div className="overlap-17">
-          <div className="rectangle-4" />
-          <div className="text-wrapper-15">ינואר</div>
-        </div>
-        <div className="overlap-18">
-          <div className="text-wrapper-17">פרטו הכנסות אחרות</div>
-        </div>
-        <div className="overlap-19">
-          <div className="text-wrapper-16">ינואר</div>
-        </div>
-        <p className="text-wrapper-18">אנא ציינ/י הכנסות משכ”ד לפי חודשים</p>
-        <div className="overlap-20">
-          <div className="overlap-21">
-            <div className="text-wrapper-19">הכנסות מהשקעות</div>
-            <p className="text-wrapper-20">האם הנך בעל חשבון השקעות?</p>
-            <div className="text-wrapper-21">לא</div>
-            <div className="text-wrapper-21">לא</div>
-            <div className="text-wrapper-22">חשבון בודד</div>
-            <div className="text-wrapper-23">מספר חשבונות השקעה נפרדים</div>
+
+        <StepsContainer currentStep={3} />
+
+        <div className="income-section">
+          <h2 className="section-title">הכנסות מעבודה</h2>
+          <div className="form-group">
+            <label htmlFor="workIncome">הכנסה שנתית מעבודה:</label>
+            <input
+              type="number"
+              id="workIncome"
+              value={workIncome}
+              onChange={(e) => setWorkIncome(e.target.value)}
+              placeholder="הזן את ההכנסה השנתית מעבודה"
+            />
           </div>
-          <div className="ellipse-6" />
-          <div className="ellipse-7" />
-          <div className="ellipse-8" />
-        </div>
-        <div className="overlap-22">
-          <div className="overlap-23">
-            <div className="text-wrapper-24">הכנסות נוספות</div>
-            <div className="text-wrapper-25">דמי שכירות מנכס</div>
-            <div className="text-wrapper-26">דמי שכירות מנכס</div>
-            <div className="text-wrapper-27">דמי שכירות מנכס</div>
-            <div className="text-wrapper-28">דמי שכירות מנכס</div>
-            <div className="text-wrapper-29">דמי שכירות מנכס</div>
-            <div className="text-wrapper-30">הכנסות אחרות</div>
-          </div>
-          <div className="rectangle-5" />
-          <div className="rectangle-6" />
-          <div className="rectangle-7" />
-          <div className="rectangle-8" />
-          <div className="rectangle-9" />
-          <div className="overlap-24">
-            <div className="rectangle-10" />
-            <DoneRoundLight className="icon-instance-node" color="black" />
+          <div className="file-upload">
+            <label htmlFor="form106">לחצו וצרפו טופס 106 מהמעסיק</label>
+            <input
+              type="file"
+              id="form106"
+              onChange={(e) => handleFileUpload(e, setForm106File)}
+            />
+            {form106File && <p>File selected: {form106File.name}</p>}
           </div>
         </div>
-        <div className="overlap-25">
-          <div className="overlap-26">
-            <div className="text-wrapper-31">הכנסות מנדל”ן למגורים</div>
-            <p className="text-wrapper-32">האם ברשותך הכנסות מנדל”ן למגורים?</p>
-            <div className="text-wrapper-33">כן</div>
-            <div className="text-wrapper-34">לא</div>
+
+        <div className="investment-section">
+          <h2 className="section-title">הכנסות מהשקעות</h2>
+          <p>האם הנך בעל חשבון השקעות?</p>
+          <div className="radio-group">
+            <label>
+              <input
+                type="radio"
+                value="yes"
+                checked={hasInvestmentAccount === true}
+                onChange={() => setHasInvestmentAccount(true)}
+              />
+              כן
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="no"
+                checked={hasInvestmentAccount === false}
+                onChange={() => setHasInvestmentAccount(false)}
+              />
+              לא
+            </label>
           </div>
-          <div className="ellipse-9" />
-          <div className="ellipse-10" />
-        </div>
-        <div className="overlap-27">
-          <div className="overlap-28">
-            <p className="text-wrapper-35">
-              2.&nbsp;&nbsp;האם את/ה משלם/ת מקדמות בגין ההכנסות משכ”ד?
-            </p>
-            <div className="text-wrapper-36">כן</div>
-            <div className="text-wrapper-37">לא</div>
+          {hasInvestmentAccount && (
+            <div className="investment-type">
+              <label>
+                <input
+                  type="radio"
+                  value="single"
+                  checked={investmentAccountType === "single"}
+                  onChange={() => setInvestmentAccountType("single")}
+                />
+                חשבון בודד
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="multiple"
+                  checked={investmentAccountType === "multiple"}
+                  onChange={() => setInvestmentAccountType("multiple")}
+                />
+                מספר חשבונות השקעה נפרדים
+              </label>
+            </div>
+          )}
+          <div className="file-upload">
+            <label htmlFor="form867">לחצו וצרפו טופס 867</label>
+            <input
+              type="file"
+              id="form867"
+              onChange={(e) => handleFileUpload(e, setForm867File)}
+            />
+            {form867File && <p>File selected: {form867File.name}</p>}
           </div>
-          <div className="ellipse-11" />
-          <div className="ellipse-12" />
         </div>
-        <div className="overlap-29">
-          <div className="text-wrapper-38">לחצו וצרפו טופס 867</div>
-          <FileDockLight className="file-dock-light-instance" />
+
+        <div className="real-estate-section">
+          <h2 className="section-title">הכנסות מנדל"ן למגורים</h2>
+          <p>האם ברשותך הכנסות מנדל"ן למגורים?</p>
+          <div className="radio-group">
+            <label>
+              <input
+                type="radio"
+                value="yes"
+                checked={hasRealEstateIncome === true}
+                onChange={() => setHasRealEstateIncome(true)}
+              />
+              כן
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="no"
+                checked={hasRealEstateIncome === false}
+                onChange={() => setHasRealEstateIncome(false)}
+              />
+              לא
+            </label>
+          </div>
+          {hasRealEstateIncome && (
+            <>
+              <p>האם את/ה משלם/ת מקדמות בגין ההכנסות משכ"ד?</p>
+              <div className="radio-group">
+                <label>
+                  <input
+                    type="radio"
+                    value="yes"
+                    checked={paysAdvancePayments === true}
+                    onChange={() => setPaysAdvancePayments(true)}
+                  />
+                  כן
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    value="no"
+                    checked={paysAdvancePayments === false}
+                    onChange={() => setPaysAdvancePayments(false)}
+                  />
+                  לא
+                </label>
+              </div>
+              <p>אנא ציינ/י הכנסות משכ"ד לפי חודשים</p>
+              {[
+                "ינואר",
+                "פברואר",
+                "מרץ",
+                "אפריל",
+                "מאי",
+                "יוני",
+                "יולי",
+                "אוגוסט",
+                "ספטמבר",
+                "אוקטובר",
+                "נובמבר",
+                "דצמבר",
+              ].map((month) => (
+                <div key={month} className="month-income">
+                  <label htmlFor={month}>{month}</label>
+                  <input
+                    type="number"
+                    id={month}
+                    value={monthlyRentIncome[month] || ""}
+                    onChange={(e) =>
+                      setMonthlyRentIncome({
+                        ...monthlyRentIncome,
+                        [month]: e.target.value,
+                      })
+                    }
+                    placeholder="הכנסה"
+                  />
+                </div>
+              ))}
+            </>
+          )}
         </div>
-        <p className="text-wrapper-39">
-          *ניתן להשיג באזור האישי באתר בנק/חבר הבורסה של המקום בו&nbsp;&nbsp;אתם
-          מחזיקים את החשבון שלכם
-        </p>
-        <div className="overlap-30">
-          <FileDockLight className="file-dock-light-2" />
-          <p className="text-wrapper-40">העלו את הטופס המתאים לאישור ההכנסה</p>
+
+        <div className="other-income-section">
+          <h2 className="section-title">הכנסות נוספות</h2>
+          <textarea
+            value={otherIncome}
+            onChange={(e) => setOtherIncome(e.target.value)}
+            placeholder="פרטו הכנסות אחרות"
+          />
         </div>
-        <div className="overlap-31">
-          <FileDockLight className="file-dock-light-2" />
-          <p className="text-wrapper-41">העלו אישור ניקוי במקור מהנאמן</p>
-        </div>
-        <div className="overlap-32">
-          <div className="text-wrapper-42">המשך</div>
-        </div>
-        <div className="overlap-33">
-          <div className="text-wrapper-43">חזור</div>
+
+        <div className="button-container">
+          <button className="back-button" onClick={handleBack}>
+            חזור
+          </button>
+          <button className="continue-button" onClick={handleContinue}>
+            המשך
+          </button>
         </div>
       </div>
     </div>
   );
 };
+
+export default Page3;

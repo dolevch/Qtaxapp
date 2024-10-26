@@ -1,722 +1,322 @@
 .page2 {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.logo {
+.page2-header {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Adjust as needed */
+  overflow: visible; /* Allow child elements to overflow */
+}
+
+.page2-grey-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background-color: #f0f0f0;
+  z-index: 1;
+}
+
+.page2-logo {
+  position: absolute;
+  top: 20px; /* Adjust this value to move the logo up or down */
+  right: 20px; /* Adjust this value to move the logo left or right */
+  z-index: 300; /* Ensure it's above the grey box */
+}
+.page2-tax-year {
+  position: absolute;
+  top: 00px;
+  right: 800px;
+  color: #0061e5;
+  direction: rtl;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 36px;
+  font-weight: 700;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.page2-steps {
+  display: flex;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  top: 214px;
+  right: 200px;
+  width: calc(100% - 120px);
+  direction: rtl;
+  background-color: #ffffff;
+  z-index: 999;
+  padding: 20px 0;
+}
+
+.page2-user-icon-container {
   position: absolute;
   top: 20px;
-  right: 20px;
-  width: 100px; /* Adjust based on your logo's dimensions */
-  height: auto;
-  z-index: 10; /* Ensure it's above other elements */
+  right: 1850px;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
 }
 
-.element {
+.page2-user-icon {
+  font-size: 45px;
+  color: #242424;
+  cursor: pointer;
+  margin-left: 10px; /* Add space between icon and name */
+}
+
+.page2-user-name {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: #242424;
+  direction: rtl; /* Align text right-to-left */
+}
+
+.page2-user-name input {
+  font-family: "times new roman", Times, serif;
+  font-size: 16px;
+  color: #242424;
+  text-align: right;
+  max-width: 150px;
+  background-color: #f6f7f7;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: none;
+  transition: all 0.3s ease;
+  letter-spacing: -0.5px;
+}
+
+.page2-main-title {
+  color: #000000;
+  font-family: "times new roman", Times, serif;
+  direction: rtl;
+  font-size: 21px;
+  font-weight: 700;
+  position: absolute;
+  top: 350px; /* Adjust this value to move the title up or down */
+  right: 40px; /* Adjust this value to move the title left or right */
+  margin: 0;
+  z-index: 0;
+}
+
+.page2-section-title {
+  color: #000000;
+  font-family: "times new roman", Times, serif;
+  font-size: 25px;
+  font-weight: 700;
+  position: absolute;
+  top: 300px; /* Adjust this value to move the title up or down */
+  right: 40px; /* Adjust this value to move the title left or right */
+  margin: 0;
+  z-index: 10; /* Ensure it's above other elements if needed */
+}
+
+/* Adjust the positioning of the form container to accommodate the standalone title */
+.page2-form-container {
+  margin-top: 300px; /* Adjust this value to create space below the title */
+  margin-right: 40px;
+}
+
+.page2-marital-status {
+  position: absolute;
+  top: 400px;
+  right: 50px;
+}
+
+page2-marital-status-container,
+.page2-children-container {
+  position: absolute;
+  top: 350px; /* Adjusted to be below the marital status */
+  right: 750px;
+}
+
+.page2-marital-status-title,
+.page2-children-title {
+  color: #000000;
+  font-family: "times new roman", Times, serif;
+  direction: rtl;
+  font-size: 21px;
+  margin-bottom: 10px;
+  margin-right: 45px;
+}
+.page2-marital-status-select,
+.page2-children-select {
+  width: 323px;
+  height: 460px;
   background-color: #ffffff;
+  border: 1px solid #637082;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-family: "times new roman", Times, serif;
+  font-size: 20px;
+  color: #242424;
+  text-align: right;
+}
+
+.page2-children-inputs-container {
   display: flex;
-  flex-direction: row;
-  justify-content: right;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 40px; /* Adjust this value to move inputs more to the right */
+  margin-top: 20px;
+}
+
+.page2-child-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+.page2-child-label {
+  font-family: "times new roman", Times, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.page2-form-input.page2-date-input {
+  width: 323px;
+  margin-top: 50px;
+  margin-left: 1030px;
+  font-family: "times new roman", Times, serif;
+  font-size: 20px;
+  color: #242424;
+  text-align: right;
+  direction: rtl;
+  margin-bottom: 15px;
+}
+
+.page2-children-count,
+.page2-child-1,
+.page2-child-2,
+.page2-child-3 {
+  margin-bottom: 24px;
+  position: relative;
+  margin-right: 40px;
+}
+
+.page2-child-1::before,
+.page2-child-2::before,
+.page2-child-3::before {
+  content: attr(data-label);
+  position: absolute;
+  top: -25px;
+  right: 730px;
+  color: #000000;
+  direction: rtl;
+  font-family: "times new roman", Times, serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.page2-form-select,
+.page2-form-input {
+  width: 323px;
+  height: 46px;
+  background-color: #ffffff;
+  border: 1px solid #637082;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-family: "times new roman", Times, serif;
+  font-size: 20px;
+  color: #242424;
+  text-align: right;
+}
+
+/* Specific styles for spouse name and ID inputs */
+.page2-spouse-info .page2-spouse-name input.page2-form-input,
+.page2-spouse-info .page2-spouse-id input.page2-form-input {
+  width: 260px !important; /* Adjust this value as needed */
+  max-width: 300px !important;
+  margin-left: 1700px;
+}
+
+/* Add margin to create space between inputs */
+.page2-spouse-info .page2-spouse-name,
+.page2-spouse-info .page2-spouse-id,
+.page2-spouse-info .page2-spouse-birthdate {
+  margin-bottom: 15px; /* Adjust this value to increase or decrease space */
+}
+
+.page2-form-input.page2-date-input {
+  width: 200px;
+  padding: 5px 10px;
+  font-family: "times new roman", Times, serif;
+  font-size: 16px;
+  color: #242424;
+  text-align: right;
+  direction: rtl;
+  right: -50px;
+}
+.page2-child-1,
+.page2-child-2,
+.page2-child-3,
+.page2-child-4,
+.page2-child-5,
+.page2-child-6 {
+  margin-bottom: 15px;
+}
+
+/* Style the date input placeholder text */
+.page2-form-input.page2-date-input::placeholder {
+  color: #999;
+}
+
+/* Style the date input when it has a value */
+.page2-form-input.page2-date-input:not(:placeholder-shown) {
+  color: #242424;
+  width: 250px;
+  margin-left: 1700px;
+}
+
+.page2-footer {
+  position: absolute;
+  bottom: 50px; /* Adjust this value to change the distance from the bottom of the page */
+  left: 90%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
-.element .div-2 {
-  background-color: #ffffff;
-  height: 990px;
-  position: relative;
-  width: 1440px;
-}
-
-.element .overlap {
-  background-color: #f6f7f7;
-  height: 92px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 1440px;
-}
-
-.element .text-wrapper {
-  color: #0061e5;
-  direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 40px;
-  font-weight: 700;
-  height: 42px;
-  left: 403px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  text-align: center;
-  top: -23px;
-  white-space: nowrap;
-  width: 634px;
-}
-
-.element .user-alt-light {
-  height: 39px !important;
-  left: 187px !important;
-  position: absolute !important;
-  top: 30px !important;
-  width: 39px !important;
-}
-
-.element .group {
-  height: 50px;
-  left: 1268px;
-  position: absolute;
-  top: 20px;
-  width: 116px;
-}
-
-.element .text-wrapper-2 {
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 22px;
-  font-weight: 700;
-  height: 42px;
-  left: 54px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  top: 26px;
-  white-space: nowrap;
-  width: 127px;
-}
-
-.element .overlap-2 {
-  height: 87px;
-  left: 1089px;
-  position: absolute;
-  top: 118px;
-  width: 199px;
-}
-
-.element .line-2 {
-  height: 1px;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 66px;
-  width: 103px;
-}
-
-.element .text-wrapper-3 {
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 18px;
-  font-weight: 400;
-  height: 42px;
-  left: 86px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  top: 45px;
-  white-space: nowrap;
-  width: 113px;
-}
-
-.element .ellipse {
-  background-color: #0061e5;
-  border-radius: 28px;
-  height: 56px;
-  left: 130px;
-  position: absolute;
-  top: 0;
-  width: 56px;
-}
-
-.element .done-round-light {
-  height: 30px !important;
-  left: 145px !important;
-  position: absolute !important;
-  top: 13px !important;
-  width: 30px !important;
-}
-
-.element .overlap-3 {
-  height: 89px;
-  left: 741px;
-  position: absolute;
-  top: 116px;
-  width: 190px;
-}
-
-.element .line-3 {
-  height: 1px;
-  left: 84px;
-  object-fit: cover;
-  position: absolute;
-  top: 68px;
-  width: 106px;
-}
-
-.element .text-wrapper-4 {
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 18px;
-  font-weight: 400;
-  height: 42px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  text-align: center;
-  top: 47px;
-  white-space: nowrap;
-  width: 89px;
-}
-
-.element .ellipse-2 {
-  border: 1px solid;
-  border-color: #787878;
-  border-radius: 28px;
-  height: 56px;
-  left: 16px;
-  position: absolute;
-  top: 2px;
-  width: 56px;
-}
-
-.element .text-wrapper-5 {
-  color: #272727;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 28px;
-  font-weight: 700;
-  height: 57px;
-  left: 36px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  text-align: right;
-  top: 0;
-  white-space: nowrap;
-}
-
-.element .line-4 {
-  height: 1px;
-  left: 657px;
-  object-fit: cover;
-  position: absolute;
-  top: 184px;
-  width: 78px;
-}
-
-.element .line-5 {
-  height: 1px;
-  left: 386px;
-  object-fit: cover;
-  position: absolute;
-  top: 184px;
-  width: 107px;
-}
-
-.element .overlap-4 {
-  height: 89px;
-  left: 943px;
-  position: absolute;
-  top: 116px;
-  width: 126px;
-}
-
-.element .text-wrapper-6 {
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 18px;
-  font-weight: 700;
-  height: 42px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  text-align: center;
-  top: 47px;
-  white-space: nowrap;
-  width: 126px;
-}
-
-.element .ellipse-3 {
-  background-color: #0061e5;
-  border: 1px solid;
-  border-color: #787878;
-  border-radius: 28px;
-  height: 56px;
-  left: 36px;
-  position: absolute;
-  top: 2px;
-  width: 56px;
-}
-
-.element .text-wrapper-7 {
-  color: #ffffff;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 28px;
-  font-weight: 700;
-  height: 57px;
-  left: 56px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  text-align: right;
-  top: 0;
-  white-space: nowrap;
-}
-
-.element .overlap-5 {
-  height: 89px;
-  left: 504px;
-  position: absolute;
-  top: 116px;
-  width: 131px;
-}
-
-.element .text-wrapper-8 {
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 18px;
-  font-weight: 400;
-  height: 42px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  text-align: center;
-  top: 47px;
-  white-space: nowrap;
-  width: 131px;
-}
-
-.element .ellipse-4 {
-  border: 1px solid;
-  border-color: #787878;
-  border-radius: 28px;
-  height: 56px;
-  left: 40px;
-  position: absolute;
-  top: 2px;
-  width: 56px;
-}
-
-.element .text-wrapper-9 {
-  color: #272727;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 28px;
-  font-weight: 700;
-  height: 57px;
-  left: 60px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  text-align: right;
-  top: 0;
-  white-space: nowrap;
-}
-
-.element .overlap-6 {
-  height: 89px;
-  left: 172px;
-  position: absolute;
-  top: 116px;
-  width: 198px;
-}
-
-.element .text-wrapper-10 {
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 18px;
-  font-weight: 400;
-  height: 42px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  top: 47px;
-  white-space: nowrap;
-  width: 198px;
-}
-
-.element .ellipse-5 {
-  border: 1px solid;
-  border-color: #787878;
-  border-radius: 28px;
-  height: 56px;
-  left: 120px;
-  position: absolute;
-  top: 2px;
-  width: 56px;
-}
-
-.element .text-wrapper-11 {
-  color: #272727;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 28px;
-  font-weight: 700;
-  height: 57px;
-  left: 140px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  text-align: right;
-  top: 0;
-  white-space: nowrap;
-}
-
-.element .text-wrapper-12 {
-  color: #000000;
-  direction: rtl;
-  font-family: "Assistant-Bold", Helvetica;
-  font-size: 22px;
-  font-weight: 700;
-  height: 42px;
-  left: 1118px;
-  letter-spacing: 0;
-  line-height: 57px;
-  position: absolute;
-  top: 256px;
-  white-space: nowrap;
-  width: 166px;
-}
-
-.element .overlap-7 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 968px;
-  position: absolute;
-  top: 310px;
-  width: 320px;
-}
-
-.element .expand-down-wrapper {
-  background-image: url(./expand-down.svg);
-  background-size: 100% 100%;
-  height: 24px;
-  left: 5px;
-  position: absolute;
-  top: 11px;
-  width: 22px;
-}
-
-.element .expand-down {
-  height: 24px !important;
-  left: 0 !important;
-  position: absolute !important;
-  top: 0 !important;
-  width: 22px !important;
-}
-
-.element .text-wrapper-13 {
-  color: #242424;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  height: 35px;
-  left: 168px;
-  letter-spacing: 0;
-  line-height: 35px;
-  position: absolute;
-  top: 3px;
-  width: 143px;
-}
-
-.element .overlap-8 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 968px;
-  position: absolute;
-  top: 398px;
-  width: 320px;
-}
-
-.element .expand-down-instance {
-  height: 24px !important;
-  left: 4px !important;
-  position: absolute !important;
-  top: 10px !important;
-  width: 22px !important;
-}
-
-.element .text-wrapper-14 {
-  color: #242424;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  height: 35px;
-  left: 216px;
-  letter-spacing: 0;
-  line-height: 35px;
-  position: absolute;
-  top: 3px;
-  width: 95px;
-}
-
-.element .overlap-9 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 1137px;
-  position: absolute;
-  top: 474px;
-  width: 151px;
-}
-
-.element .date-range-duotone {
-  left: 10px !important;
-  position: absolute !important;
-  top: 6px !important;
-}
-
-.element .overlap-10 {
-  height: 35px;
-  left: 48px;
-  position: absolute;
-  top: 4px;
-  width: 95px;
-}
-
-.element .text-wrapper-15 {
-  color: #242424;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  height: 35px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: 35px;
-  position: absolute;
-  top: 0;
-  width: 95px;
-}
-
-.element .overlap-11 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 967px;
-  position: absolute;
-  top: 474px;
-  width: 151px;
-}
-
-.element .date-range-duotone-instance {
-  height: 30px !important;
-  left: 11px !important;
-  position: absolute !important;
-  top: 6px !important;
-  width: 25px !important;
-}
-
-.element .text-wrapper-16 {
-  color: #242424;
-  direction: rtl;
-  font-family: "Assistant-Regular", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  height: 35px;
-  left: 47px;
-  letter-spacing: 0;
-  line-height: 35px;
-  position: absolute;
-  top: 3px;
-  width: 95px;
-}
-
-.element .overlap-12 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 1137px;
-  position: absolute;
-  top: 528px;
-  width: 151px;
-}
-
-.element .icon-instance-node {
-  height: 30px !important;
-  left: 10px !important;
-  position: absolute !important;
-  top: 6px !important;
-  width: 26px !important;
-}
-
-.element .overlap-13 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 967px;
-  position: absolute;
-  top: 528px;
-  width: 151px;
-}
-
-.element .overlap-14 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 1137px;
-  position: absolute;
-  top: 582px;
-  width: 151px;
-}
-
-.element .overlap-15 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 967px;
-  position: absolute;
-  top: 582px;
-  width: 151px;
-}
-
-.element .overlap-16 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 1137px;
-  position: absolute;
-  top: 636px;
-  width: 151px;
-}
-
-.element .overlap-17 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 967px;
-  position: absolute;
-  top: 636px;
-  width: 151px;
-}
-
-.element .overlap-18 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 1137px;
-  position: absolute;
-  top: 690px;
-  width: 151px;
-}
-
-.element .overlap-19 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 967px;
-  position: absolute;
-  top: 690px;
-  width: 151px;
-}
-
-.element .overlap-20 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 1137px;
-  position: absolute;
-  top: 744px;
-  width: 151px;
-}
-
-.element .overlap-21 {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #637082;
-  border-radius: 5px;
-  height: 46px;
-  left: 967px;
-  position: absolute;
-  top: 744px;
-  width: 151px;
-}
-
-.element .div-wrapper {
-  background-color: #0061e5;
-  border-radius: 50px;
-  height: 46px;
-  left: 155px;
-  position: absolute;
-  top: 895px;
+.page2-button {
   width: 152px;
-}
-
-.element .text-wrapper-17 {
-  color: #ffffff;
-  direction: rtl;
-  font-family: "Assistant-SemiBold", Helvetica;
+  height: 46px;
+  border-radius: 50px;
+  font-family: "times new roman", Times, serif;
   font-size: 24px;
   font-weight: 600;
-  height: 35px;
-  left: 44px;
-  letter-spacing: 0;
-  line-height: 35px;
-  position: absolute;
-  text-align: center;
-  top: 4px;
-  width: 64px;
+  cursor: pointer;
+  margin: 0 10px; /* Add some space between buttons */
 }
 
-.element .overlap-22 {
-  border: 1px solid;
-  border-color: #0061e5;
-  border-radius: 50px;
-  height: 46px;
-  left: 325px;
-  position: absolute;
-  top: 895px;
-  width: 152px;
+.page2-button-primary {
+  background-color: #0061e5;
+  color: #ffffff;
+  border: none;
 }
 
-.element .text-wrapper-18 {
+.page2-button-secondary {
+  background-color: #ffffff;
   color: #0061e5;
-  direction: rtl;
-  font-family: "Assistant-SemiBold", Helvetica;
-  font-size: 24px;
-  font-weight: 600;
-  height: 35px;
-  left: 43px;
-  letter-spacing: 0;
-  line-height: 35px;
-  position: absolute;
-  text-align: center;
-  top: 3px;
-  width: 64px;
+  border: 1px solid #0061e5;
+}
+
+@media (max-width: 1440px) {
+  .page2-steps {
+    right: 220px;
+    width: calc(100% - 240px);
+  }
 }

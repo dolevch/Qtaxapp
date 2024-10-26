@@ -1,30 +1,60 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow -ms-scroll-snap-y:;
+  height: 100%;
+}
+
 .SIGNUP {
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.signup-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 .SIGNUP .div-2 {
   background-color: #ffffff;
-  height: 918px;
-  position: relative;
+  height: 1000px;
   width: 1440px;
+  position: relative;
+  z-index: 1; /* Add this to ensure it's above the GreyBox */
+}
+
+.signup .GreyBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%; /* Changed to full height */
+  width: 40%; /* Adjust this value as needed */
+  background-color: #f0f0f0;
+  z-index: 0; /* Ensure it's behind other content */
+}
+
+.SIGNUP .logo {
+  position: absolute;
+  margin-top: -75px;
+  margin-left: 1900px;
+  z-index: 10;
 }
 
 .SIGNUP .text-wrapper {
   color: #0061e5;
   direction: rtl;
-  font-family: "Assistant", Helvetica;
+  font-family: "Times New Roman", Times, serif;
   font-size: 40px;
   font-weight: 700;
   height: 57px;
-  left: 821px;
+  left: 1350px;
   letter-spacing: 0;
   line-height: 57px;
   position: absolute;
-  top: 139px;
+  top: 50px;
   white-space: nowrap;
   width: 529px;
 }
@@ -36,11 +66,11 @@
   font-size: 28px;
   font-weight: 400;
   height: 57px;
-  left: 514px;
+  left: 1050px;
   letter-spacing: 0;
   line-height: 30px;
   position: absolute;
-  top: 196px;
+  top: 125px;
   width: 836px;
 }
 
@@ -71,48 +101,160 @@
 }
 
 .SIGNUP .input-field {
-  width: 100%;
-  height: 100%;
-  border: none;
+  width: 94%;
+  height: 72%;
+  border: black;
   background: transparent;
-  padding: 0 10px;
+  padding: 0px 10px 0;
   direction: rtl;
   font-size: 20px;
 }
 
-.SIGNUP .overlap-2 label,
-.SIGNUP .overlap-3 label,
-.SIGNUP .overlap-4 label,
-.SIGNUP .overlap-5 label {
+.SIGNUP .overlap-2 {
+  position: relative;
+  margin-left: 535px;
+  top: 250px;
+}
+
+.SIGNUP .overlap-2 .input-field {
+  padding-top: 15px;
+}
+
+.SIGNUP .overlap-2 label {
+  font-family: "Times New Roman", Times, serif;
   position: absolute;
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  transition: all 0.3s;
-  color: #242424;
-  font-family: "Assistant", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  padding: 0 5px;
+  color: #637082;
   pointer-events: none;
 }
 
 .SIGNUP .overlap-2.focused label,
-.SIGNUP .overlap-3.focused label,
-.SIGNUP .overlap-4.focused label,
-.SIGNUP .overlap-5.focused label,
-.SIGNUP .overlap-2 input:not(:placeholder-shown) + label,
-.SIGNUP .overlap-3 input:not(:placeholder-shown) + label,
-.SIGNUP .overlap-4 input:not(:placeholder-shown) + label,
-.SIGNUP .overlap-5 input:not(:placeholder-shown) + label {
-  top: -10px;
-  font-size: 14px;
-  background-color: white;
+.SIGNUP .overlap-2 input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 12px;
+  transform: translateY(0);
+  color: #0061e5;
+}
+
+.SIGNUP .overlap-3 {
+  position: relative;
+  margin-left: 535px;
+  top: 300px;
+}
+
+.SIGNUP .overlap-3 .input-field {
+  padding-top: 15px;
+}
+
+.SIGNUP .overlap-3 label {
+  font-family: "Times New Roman", Times, serif;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  background-color: #ffffff;
   padding: 0 5px;
+  color: #637082;
+  pointer-events: none;
+}
+
+.SIGNUP .overlap-3.focused label,
+.SIGNUP .overlap-3 input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 12px;
+  transform: translateY(0);
+  color: #0061e5;
+}
+
+.SIGNUP .overlap-4 {
+  position: relative;
+  margin-left: 535px;
+  top: 350px;
+}
+.SIGNUP .overlap-4 .input-field {
+  padding-top: 15px;
+}
+
+.SIGNUP .overlap-4 label {
+  font-family: "Times New Roman", Times, serif;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  padding: 0 5px;
+  color: #637082;
+  pointer-events: none;
+}
+
+.SIGNUP .overlap-4.focused label,
+.SIGNUP .overlap-4 input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 12px;
+  transform: translateY(0);
+  color: #0061e5;
+}
+
+.SIGNUP .overlap-5 {
+  position: relative;
+  margin-left: 535px;
+  margin-top: -0px;
+}
+
+.SIGNUP .overlap-5 {
+  background-color: #ffffff;
+  border: 1px solid #637082;
+  border-radius: 5px;
+  height: -46px;
+  left: 1031px;
+  position: absolute;
+  width: 319px;
+  top: 400px;
+  position: relative;
+}
+
+.SIGNUP .overlap-5 .input-field {
+  width: 94%;
+  height: 72%;
+  border: none;
+  background: transparent;
+  padding: 0px 10px 0;
+  direction: rtl;
+  font-size: 20px;
+  padding-top: 15px;
+}
+
+.SIGNUP .overlap-5 label {
+  font-family: "Times New Roman", Times, serif;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  padding: 0 5px;
+  color: #637082;
+  pointer-events: none;
+}
+
+.SIGNUP .overlap-5.focused label,
+.SIGNUP .overlap-5 input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 12px;
+  transform: translateY(0);
+  color: #0061e5;
 }
 
 .SIGNUP .checkbox-container {
   position: absolute;
-  left: 1031px;
+  left: 1550px;
   width: 319px;
   direction: rtl;
   font-family: "Assistant", Helvetica;
@@ -131,11 +273,11 @@
   background-color: #0061e5;
   border-radius: 50px;
   color: #ffffff;
-  font-family: "Assistant", Helvetica;
+  font-family: "times new roman", times, serif;
   font-size: 24px;
   font-weight: 600;
   height: 46px;
-  left: 1031px;
+  left: 1550px;
   position: absolute;
   top: 720px;
   width: 319px;
@@ -143,6 +285,9 @@
   cursor: pointer;
 }
 
+.SIGNUP .signup-button:hover {
+  opacity: 0.8;
+}
 .SIGNUP .signup-button.blue-ellipse {
   background-color: #0061e5;
   box-shadow: 0 0 10px rgba(0, 97, 229, 0.5);
@@ -155,7 +300,7 @@
 
 .SIGNUP .overlap-group-2 {
   height: 102px;
-  left: 1061px;
+  left: 1600px;
   position: absolute;
   top: 780px;
   width: 268px;
@@ -185,6 +330,9 @@
   text-decoration: underline;
 }
 
+.SIGNUP .text-wrapper-2:hover {
+  opacity: 0.8;
+}
 .SIGNUP .error-message {
   color: red;
   font-size: 14px;

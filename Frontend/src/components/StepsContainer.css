@@ -1,0 +1,96 @@
+.steps-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the steps */
+  position: absolute;
+  top: 114px;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  width: calc(100% - 40px); /* Adjusted width */
+  direction: rtl;
+  background-color: #ffffff;
+  z-index: 999;
+  padding: 20px 0;
+  font-family: "Assistant", sans-serif; /* Changed font to match the rest of the page */
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 0 20px; /* Added margin between steps */
+}
+
+.box {
+  height: 56px;
+  width: 56px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.ellipse {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  border: 2px solid #787878; /* Increased border width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px; /* Adjusted font size */
+  color: #272727;
+  background-color: #ffffff;
+}
+
+.step.active .ellipse {
+  background-color: #0061e5;
+  border-color: #0061e5;
+  color: #ffffff;
+}
+
+.step-text {
+  color: #000000;
+  font-family: "Assistant", sans-serif; /* Changed font to match the rest of the page */
+  font-size: 16px; /* Adjusted font size */
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dashed-line {
+  flex-grow: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    #000000,
+    #000000 5px,
+    transparent 5px,
+    transparent 10px
+  );
+  margin: 0 10px;
+  align-self: center;
+  width: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1440px) {
+  .steps-container {
+    width: calc(100% - 80px); /* Adjusted width for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .steps-container {
+    flex-direction: column; /* Stack steps vertically on small screens */
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .step {
+    margin: 10px 0; /* Adjusted margin for vertical layout */
+  }
+
+  .dashed-line {
+    display: none; /* Hide dashed line on small screens */
+  }
+}

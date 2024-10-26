@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import GreyBox from "./GreyBox";
 import "./WelcomePage.css";
+import Logo from "./Logo";
 
 const WelcomePage = () => {
   const [selfEmployed, setSelfEmployed] = useState(null);
@@ -17,6 +19,8 @@ const WelcomePage = () => {
 
   return (
     <div className="welcome-page">
+      <GreyBox />
+      <Logo />
       <div className="div-6">
         <div className="overlap-23">
           <div className="text-wrapper-36">ברוכים הבאים לQtax</div>
@@ -77,13 +81,6 @@ const WelcomePage = () => {
             054-6658608
           </div>
         )}
-        <div className="group-wrapper">
-          <img
-            className="group-3"
-            alt="Group"
-            src="https://cdn.animaapp.com/projects/66af5c89776d5bcf2ecb6e2d/releases/66b3002dda47b5df7d5a9923/img/group-2@2x.png"
-          />
-        </div>
       </div>
     </div>
   );

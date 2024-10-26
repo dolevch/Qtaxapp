@@ -1,0 +1,51 @@
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 322px;
+  position: absolute;
+  right: 153px;
+  top: 993px;
+}
+
+.back-button,
+.forward-button {
+  width: 152px;
+  height: 46px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button {
+  border: 1px solid #0061e5;
+}
+
+.forward-button {
+  background-color: #0061e5;
+}
+
+.text-wrapper-26,
+.text-wrapper-27 {
+  color: #ffffff;
+  direction: rtl;
+  font-family: "Assistant-SemiBold", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.text-wrapper-27 {
+  color: #0061e5;
+}
+
+.text-wrapper-26:hover {
+  opacity: 0.8;
+}
+.text-wrapper-27:hover {
+  opacity: 0.8;
+}
